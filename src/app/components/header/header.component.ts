@@ -14,10 +14,10 @@ import { RegisterComponent } from '../register/register.component';
 })
 export class HeaderComponent implements OnInit {
 
-
-
   user: Usuario;
   hideUserIcon: boolean;
+
+
   constructor(private dialog: MatDialog,
               private transferUser: TranseferUserService,
               private hideProfileService: HideProfileService) { 
@@ -27,8 +27,6 @@ export class HeaderComponent implements OnInit {
               }
 
   ngOnInit(): void {
-    this.hideProfileService.sharedToggle
-                .subscribe(data => this.hideUserIcon = data)
   }
 
   openLogin(){
@@ -45,7 +43,9 @@ export class HeaderComponent implements OnInit {
       dialogRef.afterClosed().subscribe(
         data=> {this.user=data;
                 this.transferUser.nextUser(this.user);
-                this.hideProfileService.nextToggle(false)})
+                this.hideProfileService.nextToggle(false)
+                console.log(this.hideUserIcon)
+              })
   }
 
 //   openRegister(){
