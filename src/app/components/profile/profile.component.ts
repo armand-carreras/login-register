@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Usuario } from '../../interfaces/usuario'
 import { TranseferUserService } from '../../Service/transefer-user.service';
 @Component({
@@ -9,11 +9,21 @@ import { TranseferUserService } from '../../Service/transefer-user.service';
 export class ProfileComponent implements OnInit {
   profile: Usuario;
 
-  constructor(private transferUser: TranseferUserService) { }
-
-  ngOnInit(): void {
+  constructor(private transferUser: TranseferUserService) {
     this.transferUser.sharedUser.subscribe(data=>this.profile = data);
   }
 
+  ngOnInit(): void {
+  }
+
+  logOut(){
+    this.profile={
+      id:'',
+      name:'',
+      email:'',
+      password:'',
+      description:''
+    }
+  }
 
 }
