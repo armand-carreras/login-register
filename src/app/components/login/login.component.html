@@ -1,0 +1,26 @@
+<!-- <mat-card>
+  <mat-card-title>Sign In.</mat-card-title>
+<mat-card-content> -->
+
+<!-- </mat-card-content>
+</mat-card> -->
+
+    <form mat-dialog-content [formGroup]="formGroup">
+      <h1>Sign in.</h1>
+      <mat-form-field>
+        <input  matInput  placeholder="your email"  type="email" formControlName="email" email required>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input  matInput  placeholder="your password" type="password"  formControlName="password" required>
+      </mat-form-field>
+    
+      <p *ngIf="errorBool" class="error">
+      {{ errorMessage }}
+      </p> 
+    </form>
+    <mat-dialog-actions>
+      <button mat-icon-button (click)="close()"><mat-icon>close</mat-icon></button>
+      <button mat-raised-button [disabled]='!formGroup.valid' (click)="save()">Log In</button>
+    </mat-dialog-actions>
+    

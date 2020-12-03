@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin: 3rem 3rem;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+form{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.error {
+  width: 100%;
+  color: rgb(173, 0, 0);
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}

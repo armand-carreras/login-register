@@ -1,0 +1,25 @@
+<mat-toolbar color = 'primary'>
+    <button mat-icon-button color="primary" routerLink='/home'>
+        <mat-icon color='accent'>home</mat-icon>
+    </button>
+    <div>
+        <button mat-icon-button [disabled]='!showProfile' routerLink='/profile'>
+            <mat-icon>face</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menuRef">
+            <mat-icon>
+                menu
+            </mat-icon>
+        </button>
+    
+        <mat-menu #menuRef>
+            <button mat-menu-item (click)='openLogin()'>
+                Sing In
+            </button>
+            <button mat-menu-item routerLink='/register'>
+                Sing Up
+            </button>
+        </mat-menu>
+    </div>
+
+</mat-toolbar>

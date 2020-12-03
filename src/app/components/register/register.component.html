@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Sign Up</mat-card-title>
+        <mat-card-subtitle>Register to the best webSite</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <form fxLayout="column" [formGroup]='formGroup' (ngSubmit)='submitRegister(formGroup)'>
+            <mat-form-field>
+                <mat-label>Nombre:</mat-label>
+                <input matInput type="text" placeholder="Tu nombre" formControlName='name' required minlength="5">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email:</mat-label>
+                <input matInput type='email' placeholder="example@exmpl.exp" formControlName='email' email required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password:</mat-label>
+                <input matInput type="password" placeholder="......." value="" formControlName='password' minlength="5" required>
+            </mat-form-field>
+            <button mat-flat-button color='primary' type="submit" [disabled]='!formGroup.valid'>Submit.</button>
+        </form>
+    </mat-card-content>
+</mat-card>
