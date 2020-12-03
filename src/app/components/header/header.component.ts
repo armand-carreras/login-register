@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Usuario } from '../../interfaces/usuario';
+import { HideProfileService } from '../../Service/hide-profile.service';
 import { TranseferUserService } from '../../Service/transefer-user.service';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
@@ -16,12 +17,18 @@ export class HeaderComponent implements OnInit {
 
 
   user: Usuario;
-  showProfile: boolean;
+  hideUserIcon: boolean;
   constructor(private dialog: MatDialog,
-              private transferUser: TranseferUserService) { }
+              private transferUser: TranseferUserService,
+              private hideProfileService: HideProfileService) { 
+                this.hideProfileService.sharedToggle
+                .subscribe(data => this.hideUserIcon = data);
+                console.log(this.hideUserIcon)
+              }
 
   ngOnInit(): void {
-    this.showProfile=false;
+    this.hideProfileService.sharedToggle
+                .subscribe(data => this.hideUserIcon = data)
   }
 
   openLogin(){
@@ -38,7 +45,7 @@ export class HeaderComponent implements OnInit {
       dialogRef.afterClosed().subscribe(
         data=> {this.user=data;
                 this.transferUser.nextUser(this.user);
-                this.showProfile = true})
+                this.hideProfileService.nextToggle(false)})
   }
 
 //   openRegister(){

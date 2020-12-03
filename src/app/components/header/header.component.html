@@ -3,7 +3,7 @@
         <mat-icon color='accent'>home</mat-icon>
     </button>
     <div>
-        <button mat-icon-button [disabled]='!showProfile' routerLink='/profile'>
+        <button mat-icon-button [hidden]='hideUserIcon' routerLink='/profile'>
             <mat-icon>face</mat-icon>
         </button>
         <button mat-icon-button [matMenuTriggerFor]="menuRef">

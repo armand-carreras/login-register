@@ -7,10 +7,8 @@
         <div>{{profile.description}}</div>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-icon-button>
-            <mat-icon>
-                exit
-            </mat-icon>
+        <button mat-flat-button color='accent' (click)='logOut()' routerLink='home'>
+            Log Out.
         </button>
     </mat-card-actions>
 </mat-card>

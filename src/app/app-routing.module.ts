@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'profile', component: ProfileComponent}, // make your own profile >> loggin component shown.
   { path: 'register', component: RegisterComponent}
 ];
